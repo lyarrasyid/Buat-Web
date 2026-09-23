@@ -1,0 +1,300 @@
+/* ==========================================================================
+   VARIBEL WARNA & TEMA (Mewah, Elegan, Clean)
+   ========================================================================== */
+:root {
+    --bg-body: #f8fafc;
+    --text-color: #0f172a;
+    --text-muted-color: #64748b;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    
+    /* Luxury Brand Colors */
+    --gold: #d97706;
+    --gold-hover: #b45309;
+    --indigo: #4f46e5;
+    --darker: #0b132b;
+    --card-dark: #1c2541;
+
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+    --bg-body: #0b132b;
+    --text-color: #f8fafc;
+    --text-muted-color: #94a3b8;
+    --card-bg: #1c2541;
+    --nav-bg: rgba(11, 19, 43, 0.85);
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+}
+
+.font-heading { font-family: var(--font-heading); }
+.text-gold { color: var(--gold) !important; }
+.bg-gold { background-color: var(--gold) !important; color: #000 !important; }
+.bg-indigo { background-color: var(--indigo) !important; color: #fff !important; }
+.bg-darker { background-color: var(--darker) !important; }
+.bg-card-dark { background-color: var(--card-dark) !important; }
+.bg-gold-subtle { background-color: rgba(217, 119, 6, 0.15) !important; }
+.form-select option {color: var(--text-color);}
+.form-control::placeholder { color: #94a3b8; }
+
+/* Custom Buttons */
+.btn-gold {
+    background-color: var(--gold);
+    color: #000;
+    border: none;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+.btn-gold:hover {
+    background-color: var(--gold-hover);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-theme-toggle, .btn-menu-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: var(--transition-smooth);
+}
+
+/* ==========================================================================
+   NAVBAR & MOBILE MENU (Unified 70% Slide Right to Left)
+   ========================================================================== */
+#mainNavbar {
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    padding: 1rem 0;
+    transition: transform 0.3s ease, background-color 0.3s ease, padding 0.3s ease;
+}
+#mainNavbar.nav-hidden {
+    transform: translateY(-100%);
+}
+#mainNavbar.nav-scrolled {
+    padding: 0.6rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Overlay Backdrop */
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.nav-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Unified Menu Styling */
+.nav-links-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-item-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    padding: 0.25rem 0;
+    transition: var(--transition-smooth);
+}
+
+.nav-item-link:hover, .nav-item-link.active {
+    color: var(--gold);
+}
+
+/* Mobile Specific Drawer (70% Width) */
+@media (max-width: 991.98px) {
+    .nav-links-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: var(--card-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1050;
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+    }
+    .nav-links-menu.show {
+        transform: translateX(0);
+    }
+}
+
+/* ==========================================================================
+   HERO BANNER
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    width: 100%;
+}
+.hero-slide {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+.max-w-700 { max-width: 700px; }
+
+.swiper-button-next, .swiper-button-prev {
+    color: var(--gold) !important;
+}
+.swiper-pagination-bullet-active {
+    background: var(--gold) !important;
+}
+
+/* ==========================================================================
+   CARDS & PORTFOLIO
+   ========================================================================== */
+.service-card {
+    background-color: var(--card-bg);
+    transition: var(--transition-smooth);
+}
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--gold);
+}
+
+.portfolio-item {
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
+}
+.portfolio-img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11, 19, 43, 0.9), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.portfolio-item:hover .portfolio-overlay { opacity: 1; }
+.portfolio-item:hover .portfolio-img { transform: scale(1.08); }
+
+/* Pricing Cards */
+.pricing-card, .card {
+    background-color: var(--card-bg);
+    transition: var(--transition-smooth);
+}
+.pricing-card.featured {
+    background-color: var(--darker);
+    transform: scale(1.03);
+}
+
+/* Form Styling Dark */
+.form-control-dark, .form-select-dark {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+}
+.form-control-dark:focus, .form-select-dark:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--gold);
+    color: #fff;
+    box-shadow: none;
+}
+
+/* Scroll To Top Button */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--gold);
+    color: #000;
+    border: none;
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-smooth);
+}
+.scroll-top-btn.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ==========================================================================
+    DARK MODE & MENU MOBILE
+   ========================================================================== */
+
+/* Mengubah background putih pada section Layanan & Paket Harga di Dark Mode */
+[data-theme="dark"] .bg-light-subtle {
+    background-color: #111a36 !important; /* Warna gelap yang senada namun sedikit beda dari background utama */
+}
+
+/* Memperbaiki warna teks agar lebih terang dan terbaca di Dark Mode */
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .list-unstyled {
+    color: var(--text-muted-color) !important;
+}
+
+[data-theme="dark"] .text-dark,
+[data-theme="dark"] .font-heading,
+[data-theme="dark"] .card h6,
+[data-theme="dark"] .text-darker {
+    color: var(--text-color) !important;
+}
+
+/* Memperbaiki warna tombol outline di paket harga agar teksnya terang */
+[data-theme="dark"] .btn-outline-dark {
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+[data-theme="dark"] .btn-outline-dark:hover {
+    background-color: var(--text-color);
+    color: var(--bg-body);
+}
+
+/* Styling untuk tombol close di menu mobile */
+.btn-close-menu {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+.btn-close-menu:hover {
+    color: var(--gold);
+    transform: scale(1.1);
+}
