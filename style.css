@@ -45,7 +45,7 @@ body {
 .bg-card-dark { background-color: var(--card-dark) !important; }
 .bg-gold-subtle { background-color: rgba(217, 119, 6, 0.15) !important; }
 .form-select option {color: var(--text-color);}
-.form-control::placeholder { color: #94a3b8; }
+.form-control::placeholder, .text-light-50  { color: #94a3b8; }
 
 /* Custom Buttons */
 .btn-gold {
